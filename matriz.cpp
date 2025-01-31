@@ -1,13 +1,34 @@
 #include "../include/matriz.hpp"
+#include <iostream>
 
 using namespace std;
 
-//Construtor da Matriz, puxa a função inicializar matriz
+/**
+ * @file matriz.cpp
+ * @brief Implementação da classe Matriz, responsável por gerenciar a estrutura do tabuleiro do jogo.
+ */
+
+/**
+ * @brief Construtor da classe Matriz.
+ *
+ * Inicializa a matriz chamando `inicializarMatriz()` para criar a estrutura do tabuleiro.
+ */
 Matriz::Matriz(){
     inicializarMatriz();
 }
-//função inicializar matriz, faz a matriz ter a estrutura definida 22 por 22;
+
+/**
+ * @brief Inicializa a matriz do jogo com a estrutura padrão.
+ *
+ * A matriz tem um tamanho fixo de 22x22, contendo coordenadas de referência e espaços para os navios e disparos.
+ */
 void Matriz::inicializarMatriz(){
+     /**
+     * @brief Estrutura inicial da matriz do tabuleiro.
+     *
+     * Essa matriz contém as coordenadas de referência ('A' - 'J' e '0' - '9'),
+     * além das divisões para os espaços onde os navios serão posicionados.
+     */
         char estrutura[22][22] = {
         {' ', ' ', 'A', ' ', 'B', ' ', 'C', ' ', 'D', ' ', 'E', ' ', 'F', ' ', 'G', ' ', 'H', ' ', 'I', ' ', 'J', ' '},
         {' ', ' ', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', ' '},
@@ -41,33 +62,51 @@ void Matriz::inicializarMatriz(){
     }
 }
 
-//exibe a matriz na tela, vai ser utilizada em outras funções
+
+/**
+ * @brief Exibe a matriz na tela.
+ *
+ * Essa função imprime o tabuleiro, sendo utilizada em outras partes do jogo.
+ */
 void Matriz::printar() const{
     for(int i=0; i < tamanho; i++){
         for(int j=0; j < tamanho; j++){
         cout << matriz[i][j]<<" ";
+        }
+    cout << endl; ///< Quebra de linha após cada linha da matriz.
     }
 }
-}
 
-// como o jogador terá de 0 a 9 e A a J, e a matriz não segue esses valores, essa função set converte as coordenadas dadas para alterar na matriz
+/**
+ * @brief Define um símbolo em uma posição específica da matriz.
+ * 
+ * @param linha Índice da linha na matriz.
+ * @param coluna Índice da coluna na matriz representado por um caractere ('A' - 'J').
+ * @param simbolo Caractere a ser inserido na posição especificada.
+ */
 void Matriz::setPosicao(int linha, char coluna, char simbolo){
     int coluna_real = 0;
-    int linha_real = linha*2 + 2;
-
-    coluna_real = (coluna - 'A') * 2 + 2;
+    int linha_real = linha * 2 + 2; ///< Converte a linha para o índice correto na matriz.
+    int coluna_real = (coluna - 'A') * 2 + 2; ///< Converte a coluna ('A' - 'J') para um índice numérico.
 
     if(linha_real >= 2 && linha_real <= 20 && coluna_real >= 2 && coluna_real <= 20){
         matriz[linha_real][coluna_real] = simbolo;
     }
 }
 
-// com o mesmo funcionamento que a set, só para get para compararmos em funções como disparo e no posicionamento
+/**
+ * @brief Retorna o símbolo presente em uma posição específica da matriz.
+ * 
+ * @param linha Índice da linha na matriz.
+ * @param coluna Índice da coluna na matriz representado por um caractere ('A' - 'J').
+ * @return O caractere armazenado na posição especificada.
+ */
 char Matriz::getPosicao(int linha, char coluna) const {
-    int colunaIndex = (coluna - 'A') * 2 + 2;
+    int colunaIndex = (coluna - 'A') * 2 + 2; ///< Converte a coluna ('A' - 'J') para um índice numérico.
 
     if (linha >= 0 && linha <= 9 && colunaIndex >= 2 && colunaIndex <= 20) {
-        return matriz[2 + linha * 2][colunaIndex];
+        return matriz[2 + linha * 2][colunaIndex]; ///< Retorna o símbolo presente na posição especificada.
     }
 
-    return ' ';}
+    return ' '; ///< Retorna espaço em branco caso a posição seja inválida.
+}
