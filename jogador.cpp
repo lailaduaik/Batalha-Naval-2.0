@@ -2,18 +2,36 @@
 #include <iostream>
 
 using namespace std;
-//inicializa a classe jogador com 0 acertos e inicializa o vetor dos navios pelo push_back
-Jogador :: Jogador(): acertos(0){
-    navios.push_back(Carrier());   
-    navios.push_back(Tanker());    
-    navios.push_back(Destroyer()); 
-    navios.push_back(Submarine()); 
 
+/**
+ * @file jogador.cpp
+ * @brief Implementação da classe Jogador, responsável por gerenciar as ações do jogador no jogo.
+ */
+
+/**
+ * @brief Construtor da classe Jogador.
+ *
+ * Inicializa o jogador com 0 acertos e adiciona os navios disponíveis ao vetor de navios.
+ */
+Jogador :: Jogador(): acertos(0){
+    navios.push_back(Carrier());   ///< Adiciona um porta-aviões ao vetor de navios.
+    navios.push_back(Tanker());    ///< Adiciona um navio-tanque ao vetor de navios.
+    navios.push_back(Destroyer()); ///< Adiciona um contratorpedeiro ao vetor de navios.
+    navios.push_back(Submarine()); ///< Adiciona um submarino ao vetor de navios.
 }
 
-
-
-// função posicionar responsável por posicionar um navio de acordo com a entrada do jogador, essa função vai ser usada na classe jogo.
+/**
+ * @brief Posiciona um navio no tabuleiro do jogador.
+ * 
+ * O jogador insere a linha, coluna, tipo de navio e a direção de posicionamento.
+ * A função verifica a validade da entrada e posiciona o navio caso o espaço esteja livre.
+ * 
+ * @param linha Linha onde o navio será posicionado.
+ * @param coluna Coluna onde o navio será posicionado.
+ * @param tipo Tipo do navio a ser posicionado.
+ * @param _direcao Direção do navio ('H' para horizontal, 'V' para vertical).
+ * @return `true` se o navio foi posicionado com sucesso, `false` caso contrário.
+ */
 bool Jogador::Posicionar(int linha, char coluna, char tipo, char _direcao) {
     try {
         // Verifica se as coordenadas estão dentro dos limites tratamento de exceção
@@ -71,7 +89,17 @@ bool Jogador::Posicionar(int linha, char coluna, char tipo, char _direcao) {
     }
 }
 
-
+/**
+ * @brief Realiza um disparo contra o inimigo.
+ * 
+ * O jogador escolhe uma linha e uma coluna para atacar. Se acertar um navio inimigo,
+ * a posição será marcada com 'X', caso contrário, será marcada com 'O'.
+ * 
+ * @param inimigo Referência para o jogador inimigo que receberá o ataque.
+ * @param linha Linha onde o disparo será realizado.
+ * @param coluna Coluna onde o disparo será realizado.
+ * @return `true` se o disparo acertou um navio, `false` caso contrário.
+ */
 bool Jogador::disparar(Jogador& inimigo, int linha, char coluna) {
     try {
         // Verifica se a linha está dentro do intervalo permitido
@@ -106,7 +134,11 @@ bool Jogador::disparar(Jogador& inimigo, int linha, char coluna) {
     }
 }
 
-// exibi os tabuleiros a cada turno
+/**
+ * @brief Exibe os tabuleiros do jogador.
+ *
+ * Mostra o tabuleiro de ataque e o tabuleiro de embarcações após cada rodada.
+ */
 void Jogador :: exibirtabuleiros() const{
     cout << "\n Seu tabuleiro de ataque após essa rodada: " << endl;
     matriz_ataque.printar();
@@ -114,14 +146,31 @@ void Jogador :: exibirtabuleiros() const{
     tabuleiro.printar();
 }
 
-// função para alterarmos o tabuleiro
+/**
+ * @brief Retorna a referência para o tabuleiro do jogador.
+ * 
+ * @return Referência para o tabuleiro onde os navios estão posicionados.
+ */
 Matriz& Jogador :: getTabuleiro(){
     return tabuleiro;
 }
-// função para alterarmos o tabuleiro
+
+/**
+ * @brief Retorna a referência para o tabuleiro de ataque do jogador.
+ * 
+ * @return Referência para a matriz que exibe os ataques realizados.
+ */
 Matriz& Jogador :: getTabuleiroatk(){
     return matriz_ataque;
 }
+
+/**
+ * @brief Verifica se o jogador venceu o jogo.
+ * 
+ * O jogador vence ao atingir 11 acertos nos navios do inimigo.
+ * 
+ * @return `true` se o jogador venceu, `false` caso contrário.
+ */
 bool Jogador::ganhou() const{
     return acertos >= 11;
 }
