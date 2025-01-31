@@ -1,0 +1,106 @@
+\chapter{\texorpdfstring{$<$}{<}strong\texorpdfstring{$>$}{>}Batalha-\/\+Naval-\/2.0\texorpdfstring{$<$}{<}/strong\texorpdfstring{$>$}{>} 🚢}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{$<$strong$>$Batalha-\/Naval-\/2.0$<$/strong$>$ 🚢@{$<$strong$>$Batalha-\/Naval-\/2.0$<$/strong$>$ 🚢}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+Segundo repositório do trabalho final de PDS 2
+
+Grupo 11
+\begin{DoxyItemize}
+\item Ana Julia Pinheiro Macedo ~\newline
+
+\item Laila Duaik ~\newline
+
+\item Thiago Erick de Jesus Tomaz ~\newline
+
+\item João Pedro de Moraes Nascente ~\newline
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{📘 Descrição do Projeto}{📘 Descrição do Projeto}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Este é um jogo de Batalha Naval desenvolvido em C++, projetado para simular o clássico jogo de estratégia. O objetivo é afundar todos os navios do adversário antes que seus próprios navios sejam destruídos.
+
+O projeto foi reestruturado para maior simplicidade e eficiência, removendo bibliotecas externas problemáticas e mantendo apenas as funcionalidades essenciais.
+
+Esse novo repositório também conta com uma implementação melhorada, incluindo funcionalidades de jogabilidade aprimoradas e testes unitários para garantir estabilidade.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Funcionalidades}{Funcionalidades}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Menu interativo com opções de jogo.
+\item Sistema de posicionamento e ataques.
+\item Exibição do status da partida (navios restantes, turno atual).
+\item IA para o inimigo, que posiciona e realiza ataques automaticamente.
+\item Testes automatizados utilizando Doctest.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Como Executar o Projeto?}{Como Executar o Projeto?}}\label{md__r_e_a_d_m_e_autotoc_md3}
+Esse código foi escrito para funcionar no sistema Windows. Siga os passos abaixo para configurar e executar o projeto corretamente.\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Requisitos\+:}{Requisitos\+:}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Compilador {\bfseries{g++}} (Min\+GW recomendado para Windows)
+\item Biblioteca {\bfseries{Doctest}} para rodar os testes
+\item Git\+Hub
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Passos\+:}{Passos\+:}}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Clone este repositório ou baixe os arquivos manualmente.
+\item Confirme se o "{}\`{}mingw32-\/gcc-\/g++\`{}"{} esta selecionado no menu de seleção de pacotes.
+\item Configure o PATH
+\begin{DoxyItemize}
+\item Adicione o caminho do Min\+GW ao seu PATH (O caminho é algo como "{}\+C\+:\textbackslash{}\+Min\+GW\textbackslash{}bin"{})
+\begin{DoxyItemize}
+\item Abra o Painel de Controle
+\begin{DoxyItemize}
+\item Vá em Sistema e Segurança \texorpdfstring{$>$}{>} Sistema \texorpdfstring{$>$}{>} Configurações avançadas do sistema
+\item Clique em "{}\+Variáveis de Ambiente"{}
+\item Em "{}\+Variáveis do sistema"{}, encontre a variável Path e edite-\/a
+\item Adicione o caminho do Min\+GW (por exemplo, C\+:\textbackslash{}\+Min\+GW\textbackslash{}bin)
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Compile o código
+\begin{DoxyItemize}
+\item Navegue até o diretório do projeto clonado e compile o código usando "{}\`{}mingw32-\/make\`{}"{}
+\end{DoxyItemize}
+\item Execute o programa
+\begin{DoxyItemize}
+\item Após a compilação bem-\/sucedida, você pode executar o programa usando "{}\`{}.\textbackslash{}bin\textbackslash{}main.\+exe\`{}"{} ou o comando "{}\`{}mingw32-\/run\`{}"{}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Para rodar os testes\+:}{Para rodar os testes\+:}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Compile os arquivos de teste com\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++\ -\/o\ teste\ testeJogo.cpp\ testeMenu.cpp\ testeJogador.cpp\ -\/std=c++11}
+
+\end{DoxyCode}
+
+\item Execute os testes\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./teste}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Como Jogar}{Como Jogar}}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyEnumerate}
+\item O jogo inicia exibindo um menu com opções\+:
+\begin{DoxyItemize}
+\item {\bfseries{Jogar}}\+: Inicia uma nova partida.
+\item {\bfseries{Objetivo}}\+: Exibe instruções do jogo.
+\end{DoxyItemize}
+\item O jogador deve posicionar seus navios antes do início da batalha.
+\item O objetivo é destruir todos os navios inimigos antes que os seus sejam destruídos.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Estrutura do Projeto}{Estrutura do Projeto}}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily main.\+cpp}}}\+: Arquivo principal que controla o fluxo do jogo.
+\item {\bfseries{{\ttfamily jogo.\+hpp} / {\ttfamily jogo.\+cpp}}}\+: Contém as funções principais do jogo, como verificação de ataques e controle dos turnos.
+\item {\bfseries{{\ttfamily menu.\+hpp} / {\ttfamily menu.\+cpp}}}\+: Gerencia a interface inicial e fluxo do menu.
+\item {\bfseries{{\ttfamily jogador.\+hpp} / {\ttfamily jogador.\+cpp}}}\+: Define as ações do jogador e controla os disparos.
+\item {\bfseries{{\ttfamily inimigo.\+hpp} / {\ttfamily inimigo.\+cpp}}}\+: Implementa a IA do inimigo, incluindo posicionamento automático e ataques.
+\item {\bfseries{{\ttfamily navios.\+hpp} / {\ttfamily navios.\+cpp}}}\+: Define os tipos de navios e suas características.
+\item {\bfseries{{\ttfamily matriz.\+hpp} / {\ttfamily matriz.\+cpp}}}\+: Gerencia a estrutura da matriz do tabuleiro.
+\item {\bfseries{Testes automatizados}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily teste\+Jogo.\+cpp}}}\+: Testa a inicialização e mecânica principal do jogo.
+\item {\bfseries{{\ttfamily teste\+Menu.\+cpp}}}\+: Testa a exibição e fluxo do menu.
+\item {\bfseries{{\ttfamily teste\+Jogador.\+cpp}}}\+: Testa o posicionamento e ataques dos jogadores. 
+\end{DoxyItemize}
+\end{DoxyItemize}
