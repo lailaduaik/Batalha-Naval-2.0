@@ -23,15 +23,15 @@ Jogo::Jogo() {
  * já são posicionados automaticamente. Após o posicionamento, o jogo entra no loop de rodadas.
  */
 void Jogo::iniciarJogo() {
-    cout << "Bem-vindo ao Batalha Naval!\n\n";
-    cout << "Antes de começar, você deve posicionar seus navios no tabuleiro.\n";
+    std::cout << "Bem-vindo ao Batalha Naval!\n\n";
+    std::cout << "Antes de começar, você deve posicionar seus navios no tabuleiro.\n";
 
      /**
      * @brief Lista dos tipos de navios do jogador.
      *
      * O vetor contém os navios que o jogador deve posicionar no tabuleiro.
      */
-    vector<char> tipos = {'C', 'T', 'T', 'D', 'D', 'S', 'S', 'S', 'S', 'S'};
+    std::vector<char> tipos = {'C', 'T', 'T', 'D', 'D', 'S', 'S', 'S', 'S', 'S'};
 
     for (char tipo : tipos) {
         bool posicionado = false; ///< Indica se o navio foi posicionado corretamente.
@@ -40,13 +40,13 @@ void Jogo::iniciarJogo() {
             char coluna; ///< Coluna escolhida pelo jogador.
             char direcao; ///< Direção escolhida pelo jogador ('H' para horizontal, 'V' para vertical).
 
-            cout << "Posicionando navio do tipo '" << tipo << "'.\n";
-            cout << "Digite a linha (0-9): ";
-            cin >> linha;
-            cout << "Digite a coluna (A-J): ";
-            cin >> coluna;
-            cout << "Digite a direção (H para horizontal, V para vertical): ";
-            cin >> direcao;
+            std::cout << "Posicionando navio do tipo '" << tipo << "'.\n";
+            std::cout << "Digite a linha (0-9): ";
+            std::cin >> linha;
+            std::cout << "Digite a coluna (A-J): ";
+            std::cin >> coluna;
+            std::cout << "Digite a direção (H para horizontal, V para vertical): ";
+            std::cin >> direcao;
 
             /**
              * @brief Chama a função `Posicionar()` da classe `Jogador` para inserir o navio no tabuleiro.
@@ -56,13 +56,13 @@ void Jogo::iniciarJogo() {
             posicionado = jogador.Posicionar(linha, coluna, tipo, direcao);
 
             if (!posicionado) {
-                cout << "Tente novamente.\n";
+                std::cout << "Tente novamente.\n";
             }
         }
     }
 
-    cout << "\nTodos os navios foram posicionados!\n";
-    cout << "O jogo começará agora.\n";
+    std::cout << "\nTodos os navios foram posicionados!\n";
+    std::cout << "O jogo começará agora.\n";
 
     /**
      * @brief Inicia o loop do jogo, onde as rodadas de ataques serão executadas.
@@ -82,11 +82,11 @@ void Jogo::loopJogo() {
         int linha;     ///< Linha escolhida para o ataque do jogador.
         char coluna;   ///< Coluna escolhida para o ataque do jogador.
 
-        cout << "\nSua vez de atacar!\n";
-        cout << "Digite a linha (0-9): ";
-        cin >> linha;
-        cout << "Digite a coluna (A-J): ";
-        cin >> coluna;
+        std::cout << "\nSua vez de atacar!\n";
+        std::cout << "Digite a linha (0-9): ";
+        std::cin >> linha;
+        std::cout << "Digite a coluna (A-J): ";
+        std::cin >> coluna;
 
         /**
          * @brief O jogador realiza um disparo contra o inimigo.
@@ -95,9 +95,9 @@ void Jogo::loopJogo() {
          */
         bool acerto = jogador.disparar(inimigo, linha, coluna);
         if (acerto) {
-            cout << "Você acertou um navio inimigo!\n";
+            std::cout << "Você acertou um navio inimigo!\n";
         } else {
-            cout << "Você errou.\n";
+            std::cout << "Você errou.\n";
         }
 
         /**
@@ -105,12 +105,12 @@ void Jogo::loopJogo() {
          * 
          * O inimigo escolhe aleatoriamente um local para atacar.
          */        
-        cout << "\nTurno do inimigo...\n";
+        std::cout << "\nTurno do inimigo...\n";
         bool inimigoAcertou = inimigo.disparar(jogador);
         if (inimigoAcertou) {
-            cout << "O inimigo acertou seu navio!\n";
+            std::cout << "O inimigo acertou seu navio!\n";
         } else {
-            cout << "O inimigo errou.\n";
+            std::cout << "O inimigo errou.\n";
         }
 
         /**
@@ -122,10 +122,10 @@ void Jogo::loopJogo() {
          * @brief Verifica se algum jogador atingiu a condição de vitória.
          */
         if (jogador.ganhou()) {
-            cout << "Parabéns! Você venceu a batalha naval!\n";
+            std::cout << "Parabéns! Você venceu a batalha naval!\n";
             jogoAtivo = false;
         } else if (inimigo.ganhou()) {
-            cout << "O inimigo venceu. Melhor sorte na próxima vez!\n";
+            std::cout << "O inimigo venceu. Melhor sorte na próxima vez!\n";
             jogoAtivo = false;
         }
     }
