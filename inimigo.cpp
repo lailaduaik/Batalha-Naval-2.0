@@ -1,4 +1,5 @@
 #include "..\include\inimigo.hpp"
+#include <iostream>
 
 /**
  * @file inimigo.cpp
