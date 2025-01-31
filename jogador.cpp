@@ -1,8 +1,6 @@
 #include "..\include\jogador.hpp"
 #include <iostream>
 
-using namespace std;
-
 /**
  * @file jogador.cpp
  * @brief Implementação da classe Jogador, responsável por gerenciar as ações do jogador no jogo.
@@ -36,7 +34,7 @@ bool Jogador::Posicionar(int linha, char coluna, char tipo, char _direcao) {
     try {
         // Verifica se as coordenadas estão dentro dos limites tratamento de exceção
         if (coluna < 'A' || coluna > 'J' || linha < 0 || linha > 9) {
-            throw out_of_range("Coordenadas inválidas! As coordenadas devem estar entre A-J e 0-9.");
+            throw std::out_of_range("Coordenadas inválidas! As coordenadas devem estar entre A-J e 0-9.");
         }
 
         for (auto& navio : navios) {
@@ -49,14 +47,14 @@ bool Jogador::Posicionar(int linha, char coluna, char tipo, char _direcao) {
 
                 // Verifica se o navio cabe no tabuleiro
                 if (linha + altura - 1 >= 10 || colunaIndex + largura - 1 >= 10) {
-                    throw out_of_range("O navio não cabe no tabuleiro!");
+                    throw std::out_of_range("O navio não cabe no tabuleiro!");
                 }
 
                 // Verifica se o espaço está livre
                 for (int i = 0; i < altura; i++) {
                     for (int j = 0; j < largura; j++) {
                         if (tabuleiro.getPosicao(linha + i, 'A' + colunaIndex + j) != ' ') {
-                            throw logic_error("A posição já está ocupada!");
+                            throw std::logic_error("A posição já está ocupada!");
                         }
                     }
                 }
@@ -75,16 +73,16 @@ bool Jogador::Posicionar(int linha, char coluna, char tipo, char _direcao) {
         }
         
         // Se o tipo de navio não for encontrado ou não houver unidades disponíveis
-        throw logic_error("Navio não encontrado ou quantidade esgotada!");
+        throw std::logic_error("Navio não encontrado ou quantidade esgotada!");
 
-    } catch (const out_of_range& e) {
-        cout << "Erro: " << e.what() << "\n";
+    } catch (const std::out_of_range& e) {
+        std::cout << "Erro: " << e.what() << "\n";
         return false;
-    } catch (const logic_error& e) {
-        cout << "Erro: " << e.what() << "\n";
+    } catch (const std::logic_error& e) {
+        std::cout << "Erro: " << e.what() << "\n";
         return false;
-    } catch (const exception& e) {
-        cout << "Erro inesperado: " << e.what() << "\n";
+    } catch (const std::exception& e) {
+        std::cout << "Erro inesperado: " << e.what() << "\n";
         return false;
     }
 }
@@ -104,12 +102,12 @@ bool Jogador::disparar(Jogador& inimigo, int linha, char coluna) {
     try {
         // Verifica se a linha está dentro do intervalo permitido
         if (linha < 0 || linha > 9) {
-            throw out_of_range("Linha inválida! Deve estar entre 0 e 9.");
+            throw std::out_of_range("Linha inválida! Deve estar entre 0 e 9.");
         }
 
         // Verifica se a coluna está dentro do intervalo permitido
         if (coluna < 'A' || coluna > 'J') {
-            throw out_of_range("Coluna inválida! Deve estar entre A e J.");
+            throw std::out_of_range("Coluna inválida! Deve estar entre A e J.");
         }
 
         // Acessa a posição do inimigo no tabuleiro
@@ -125,11 +123,11 @@ bool Jogador::disparar(Jogador& inimigo, int linha, char coluna) {
             matriz_ataque.setPosicao(linha, coluna, 'O');
             return false;
         }
-    } catch (const out_of_range& e) {
-        cout << "Erro: " << e.what() << "\n";
+    } catch (const std::out_of_range& e) {
+        std::cout << "Erro: " << e.what() << "\n";
         return false;
-    } catch (const exception& e) {
-        cout << "Erro inesperado: " << e.what() << "\n";
+    } catch (const std::exception& e) {
+        std::cout << "Erro inesperado: " << e.what() << "\n";
         return false;
     }
 }
@@ -140,9 +138,9 @@ bool Jogador::disparar(Jogador& inimigo, int linha, char coluna) {
  * Mostra o tabuleiro de ataque e o tabuleiro de embarcações após cada rodada.
  */
 void Jogador :: exibirtabuleiros() const{
-    cout << "\n Seu tabuleiro de ataque após essa rodada: " << endl;
+    std::cout << "\n Seu tabuleiro de ataque após essa rodada: " << std::endl;
     matriz_ataque.printar();
-    cout<< "\n Seu tabuleiro de embarcações após essa rodada: " << endl;
+    std::cout<< "\n Seu tabuleiro de embarcações após essa rodada: " << std::endl;
     tabuleiro.printar();
 }
 
