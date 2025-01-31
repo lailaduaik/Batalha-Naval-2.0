@@ -10,7 +10,9 @@ Grupo 11
 ## 📘 Descrição do Projeto
 Este é um jogo de Batalha Naval desenvolvido em C++, projetado para simular o clássico jogo de estratégia. O objetivo é afundar todos os navios do adversário antes que seus próprios navios sejam destruídos.
 
-O projeto conta com uma implementação melhorada, incluindo funcionalidades de jogabilidade aprimoradas e testes unitários para garantir estabilidade.
+O projeto foi reestruturado para maior simplicidade e eficiência, removendo bibliotecas externas problemáticas e mantendo apenas as funcionalidades essenciais.
+
+Esse novo repositório também conta com uma implementação melhorada, incluindo funcionalidades de jogabilidade aprimoradas e testes unitários para garantir estabilidade.
 
 ## Funcionalidades
 - Menu interativo com opções de jogo.
