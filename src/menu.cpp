@@ -14,12 +14,12 @@ using namespace std;
  * Exibe a tela inicial do jogo com as opções do menu principal.
  */
     Menu::Menu(){
-    cout << "===================================" << endl;
-    cout << "       Bem-vindo ao Jogo!          " << endl;
-    cout << "===================================" << endl;
-    cout << "1. Jogar" << endl;
-    cout << "2. Objetivo" << endl;
-    cout << "3. Sair do jogo"<<endl;
+    std::cout << "===================================" << std::endl;
+    std::cout << "       Bem-vindo ao Jogo!          " << std::endl;
+    std::cout << "===================================" << std::endl;
+    std::cout << "1. Jogar" << std::endl;
+    std::cout << "2. Objetivo" << std::endl;
+    std::cout << "3. Sair do jogo"<< std::endl;
     }
 
 /**
@@ -39,16 +39,16 @@ using namespace std;
  * Após a explicação, o jogo é iniciado automaticamente.
  */
     void Menu::objetivos() {
-        cout << "   Objetivo do jogo:" << endl;
-        cout << "   Afundar os navios inimigos antes que ele afunde os seus." << endl;
-        cout << "   Cada jogador tem um Tabuleiro 10x10." << endl;
-        cout << "   O tabuleiro de baixo é o seu território, onde você posiciona os navios." << endl;
-        cout << "   O tabuleiro de cima é o território inimigo, onde suas jogadas acontecem." << endl;
-        cout << endl;
-        cout << "Pressione 'QUALQUER TECLA' para jogar. Divirta-se!" << endl;
+        std::cout << "   Objetivo do jogo:" << std::endl;
+        std::cout << "   Afundar os navios inimigos antes que ele afunde os seus." << std::endl;
+        std::cout << "   Cada jogador tem um Tabuleiro 10x10." << std::endl;
+        std::cout << "   O tabuleiro de baixo é o seu território, onde você posiciona os navios." << std::endl;
+        std::cout << "   O tabuleiro de cima é o território inimigo, onde suas jogadas acontecem." << std::endl;
+        std::cout << std::endl;
+        std::cout << "Pressione 'QUALQUER TECLA' para jogar. Divirta-se!" << std::endl;
 
-        cin.ignore(); ///< Ignora qualquer caractere pendente no buffer de entrada.
-        cin.get(); ///< Aguarda o jogador pressionar uma tecla para continuar.
+        std::cin.ignore(); ///< Ignora qualquer caractere pendente no buffer de entrada.
+        std::cin.get(); ///< Aguarda o jogador pressionar uma tecla para continuar.
 
         jogo->iniciarJogo();
     }
