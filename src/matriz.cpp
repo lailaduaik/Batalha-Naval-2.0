@@ -1,8 +1,6 @@
 #include "../include/matriz.hpp"
 #include <iostream>
 
-using namespace std;
-
 /**
  * @file matriz.cpp
  * @brief Implementação da classe Matriz, responsável por gerenciar a estrutura do tabuleiro do jogo.
@@ -71,9 +69,9 @@ void Matriz::inicializarMatriz(){
 void Matriz::printar() const{
     for(int i=0; i < tamanho; i++){
         for(int j=0; j < tamanho; j++){
-        cout << matriz[i][j]<<" ";
+        std::cout << matriz[i][j]<<" ";
         }
-    cout << endl; ///< Quebra de linha após cada linha da matriz.
+    std::cout << std::endl; ///< Quebra de linha após cada linha da matriz.
     }
 }
 

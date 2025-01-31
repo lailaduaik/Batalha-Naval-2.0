@@ -1,8 +1,6 @@
 #include <iostream>
 #include "..\include\menu.hpp"
 
-using namespace std;
-
 /**
  * @file main.cpp
  * @brief Arquivo principal do jogo Batalha Naval.
@@ -24,13 +22,13 @@ int main() {
     int escolha; ///< Armazena a opção escolhida pelo jogador.
 
     do {
-        cout << "Escolha uma opção:\n";
-        cout << "1 - Iniciar Jogo\n";
-        cout << "2 - Ver Objetivos\n";
-        cout << "3 - Sair\n";
-        cout << "Opção: ";
+        std::cout << "Escolha uma opção:\n";
+        std::cout << "1 - Iniciar Jogo\n";
+        std::cout << "2 - Ver Objetivos\n";
+        std::cout << "3 - Sair\n";
+        std::cout << "Opção: ";
         
-        cin >> escolha;
+        std::cin >> escolha;
 
         /**
          * @brief Executa a ação correspondente à escolha do jogador.
@@ -48,15 +46,15 @@ int main() {
                 menu.objetivos();
                 break;
             case 3:
-                cout << "Saindo da batalha naval..." << endl;
+                std::cout << "Saindo da batalha naval..." << std::endl;
                 break;
             default:
-                cout << "Opção inválida! Tente novamente." << endl;
+                std::cout << "Opção inválida! Tente novamente." << std::endl;
                 break;
         }
     } while (escolha != 3); ///< O loop continua até que o jogador escolha sair.
 
-    cout << "FIM DE JOGO\n"; ///< Mensagem final do programa.
+    std::cout << "FIM DE JOGO\n"; ///< Mensagem final do programa.
 
     return 0;
 }
