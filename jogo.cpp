@@ -3,11 +3,6 @@
 
 using namespace std;
 
-#include <iostream>
-#include "jogo.hpp"
-
-using namespace std;
-
 /**
  * @file jogo.cpp
  * @brief Implementação da classe Jogo, responsável por controlar o fluxo do jogo.
