@@ -1,8 +1,6 @@
 #include "..\include\navios.hpp"
 #include <iostream>
 
-using namespace std;
-
 /**
  * @file navios.cpp
  * @brief Implementação das classes que representam os navios do jogo.
