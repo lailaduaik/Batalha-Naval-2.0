@@ -58,8 +58,8 @@ Esse código foi escrito para funcionar no sistema Windows. Siga os passos abaix
 
 ## Como Jogar
 1. O jogo inicia exibindo um menu com opções:
-   - **1. Jogar**: Inicia uma nova partida.
-   - **2. Objetivo**: Exibe instruções do jogo.
+   - **Jogar**: Inicia uma nova partida.
+   - **Objetivo**: Exibe instruções do jogo.
 2. O jogador deve posicionar seus navios antes do início da batalha.
 3. O objetivo é destruir todos os navios inimigos antes que os seus sejam destruídos.
 
